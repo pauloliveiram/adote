@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Tag, Breed, Pet
 from django.contrib import messages
@@ -60,3 +60,15 @@ def your_pets(request):
         pets = Pet.objects.filter(user=request.user)
         context = {'pets': pets}
         return render(request, 'your_pets.html', context)
+
+@login_required
+def remove_pet(request, id):
+    pet = Pet.objects.get(id=id)
+
+    if not pet.user == request.user:
+        messages.add_message(request, constants.ERROR, 'Esse pet não é seu!')
+        return redirect('disclose/your_pets')
+
+    pet.delete()
+    messages.add_message(request, constants.SUCCESS, 'Pet removido com sucesso!')
+    return redirect('/disclose/your_pets')
