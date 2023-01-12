@@ -52,4 +52,11 @@ def new_pet(request):
         }
 
         messages.add_message(request, constants.SUCCESS, 'Novo pet cadastrado')
-        return render(request, 'new_pet.html', context)    
+        return render(request, 'new_pet.html', context)   
+
+@login_required
+def your_pets(request):
+    if request.method == 'GET':
+        pets = Pet.objects.filter(user=request.user)
+        context = {'pets': pets}
+        return render(request, 'your_pets.html', context)
