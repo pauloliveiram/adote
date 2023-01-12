@@ -6,7 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 
 def register(request):
     if request.user.is_authenticated:
-        return redirect('/divulgar/novo_pet')
+        return redirect('/disclose/new_pet')
     if request.method == 'GET':
         return render(request, 'register.html')
     elif request.method == 'POST':
@@ -37,7 +37,7 @@ def register(request):
 
 def auth_login(request):
     if request.user.is_authenticated:
-        return redirect('/divulgar/novo_pet')
+        return redirect('/disclose/new_pet')
     if request.method == 'GET':
         return render(request, 'login.html')
     elif request.method == 'POST':
