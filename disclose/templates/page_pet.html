@@ -68,7 +68,7 @@
                             <span class="span-bold">Telefone para contato</span>
                             <p>{{pet.phone}}</p>
                             <br>
-                            <a href="#" class="btn btn-success btn-lg">SOLICITAR ADOÇÃO</a>
+                            <a href="{% url 'adoption_request' pet.id %}" class="btn btn-success btn-lg">SOLICITAR ADOÇÃO</a>
                             
                         </div>
 
