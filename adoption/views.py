@@ -70,7 +70,7 @@ def process_adoption_request(request, id_request):
     email = send_mail(
         'Sua solicitação por adoção foi processada',
         string,
-        'paulo.o.medeiros@hotmail.com',
+        '',
         [request.user.email,],
     )
 
