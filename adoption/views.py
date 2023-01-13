@@ -62,12 +62,14 @@ def process_adoption_request(request, id_request):
 
     if status == 'A':
         adoption_request.status = 'AP'
+        adoption_request.pet.status = 'A'
         string = '''Olá, a sua solicitação para adoção foi aprovada'''
     elif status == 'R':
         adoption_request.status = 'R'
         string = '''Olá, a sua solicitação para adoção foi recusada'''
 
     adoption_request.save()
+    adoption_request.pet.save()
 
     email = send_mail(
         'Sua solicitação por adoção foi processada',
