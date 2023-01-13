@@ -79,3 +79,4 @@ def page_pet(request, id):
         pet = Pet.objects.get(id=id)
         context = {'pet': pet}
         return render(request, 'page_pet.html', context)
+

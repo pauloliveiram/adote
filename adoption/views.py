@@ -6,6 +6,8 @@ from datetime import datetime
 from django.contrib import messages
 from django.contrib.messages import constants
 from django.core.mail import send_mail
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 def list_pets(request):
     if request.method == 'GET':
@@ -76,3 +78,26 @@ def process_adoption_request(request, id_request):
 
     messages.add_message(request, constants.SUCCESS, 'Pedido de adoção processado com sucesso')
     return redirect('/adoption/see_adoption_request')
+
+@login_required
+def dashboard(request):
+    if request.method == 'GET':
+        return render(request, 'dashboard.html')    
+
+@csrf_exempt
+@login_required
+def api_adoptions_by_breed(request):
+    breeds = Breed.objects.all()
+
+    quantity_adoptions = []
+    for breed in breeds:
+        adoptions = AdoptionRequest.objects.filter(pet__breed=breed).count()
+        quantity_adoptions.append(adoptions)
+
+    breeds = [breed.breed for breed in breeds]
+
+    data = {'quantity_adoptions': quantity_adoptions,
+            'labels': breeds,
+    }    
+
+    return JsonResponse(data)
