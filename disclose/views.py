@@ -72,3 +72,10 @@ def remove_pet(request, id):
     pet.delete()
     messages.add_message(request, constants.SUCCESS, 'Pet removido com sucesso!')
     return redirect('/disclose/your_pets')
+
+@login_required
+def page_pet(request, id):
+    if request.method == 'GET':
+        pet = Pet.objects.get(id=id)
+        context = {'pet': pet}
+        return render(request, 'page_pet.html', context)
