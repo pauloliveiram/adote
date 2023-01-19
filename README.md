@@ -42,7 +42,7 @@ O ADO.TE é uma aplicação fullstack web desenvolvida na Pystack Week do canal 
 git clone https://github.com/pauloliveiram/adote.git
 
 # Entrar na pasta do projeto
-cd movie-adote
+cd adote
 
 # Criar um ambiente virtual 
 python -m venv venv
