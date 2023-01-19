@@ -1,9 +1,9 @@
-# Movie Project
+# ADO.TE
 [![NPM](https://img.shields.io/npm/l/react)](https://github.com/pauloliveiram/adote/blob/main/license) ![NPM](https://img.shields.io/badge/Status-Em%20desenvolvimento-orange)
 
 ## Sobre o projeto
 
-O Adote é uma aplicação fullstack web desenvolvida na Pystack Week do canal Pythonando, que consiste em uma plataforma para intermediar adoção de animais, em que realiza a conexão entre pessoas que desejam colocar um animal para adoção com pessoas que queiram adotar. Um usuário pode cadastrar um animal na plataforma e outro usuário pode solicitar a sua adoção, podendo ser aceita ou recusada. 
+O ADO.TE é uma aplicação fullstack web desenvolvida na Pystack Week do canal Pythonando, que consiste em uma plataforma para intermediar adoção de animais, em que realiza a conexão entre pessoas que desejam colocar um animal para adoção com pessoas que queiram adotar. Um usuário pode cadastrar um animal na plataforma e outro usuário pode solicitar a sua adoção, podendo ser aceita ou recusada. 
 
 ## Tecnologias utilizadas
 
